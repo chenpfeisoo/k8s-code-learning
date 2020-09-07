@@ -1,3 +1,4 @@
+## RestClient 第一节
 rest client是最基础的k8s client 实现，也是其他三种client的实现基础，我们倒叙来看client-go里面是怎么创建和使用一个restclient的
 RESTClientFor 是创建一个restclient的方法，传入一个Config对象，输出RESTClient对象
 ```go
@@ -103,5 +104,18 @@ func defaultServerUrlFor(config *Config) (*url.URL, string, error) {
 	}
 
 	return versionedAPIPath
+}
+```
+## restclient支持的接口方法
+```go
+type Interface interface {
+	GetRateLimiter() flowcontrol.RateLimiter
+	Verb(verb string) *Request
+	Post() *Request
+	Put() *Request
+	Patch(pt types.PatchType) *Request
+	Get() *Request
+	Delete() *Request
+	APIVersion() schema.GroupVersion
 }
 ```
