@@ -1,6 +1,6 @@
 ## 第二节 config
 先看config的定义
-客户端请求 kubernetes apid的时候 带的参数
+客户端请求 kubernetes api的时候 带的参数
 ```go
 type Config struct {
 	// Host must be a host string, a host:port pair, or a URL to the base of the apiserver.
@@ -102,3 +102,4 @@ type Config struct {
 ```
 需要注意的是这个config和kubeconfig不是一个东西
 kubeconfig 是在 tool/clientcmd里面定义
+
